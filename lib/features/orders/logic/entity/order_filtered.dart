@@ -1,4 +1,4 @@
-import 'package:task/features/orders/logic/entity/order.dart';
+import 'order.dart';
 
 enum OrderFilterType {
   year,
@@ -39,7 +39,7 @@ class OrderFilterRequest {
 
   factory OrderFilterRequest.initial() {
     return OrderFilterRequest(
-      date: DateTime.now(),
+      date: DateTime(2021, 1, 1, 1, 1, 1, 1),
       type: OrderFilterType.month,
     );
   }
