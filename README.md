@@ -1,16 +1,12 @@
 # task
 
-A new Flutter project.
+Flutter Task For Job Interview 
+to run it you must download the repo and ensure that all imports all correct 
+then you run " Flutter Pub Get " to import the correct libraryies 
+-------------------------------------------------------------------
+The consists of two pages
+First one showing numeric metrics about the orders: total count, average price
+and number of returns
+- Second one showing a graph displaying the number of orders as the Y-axis
+and time as the X-axis
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
