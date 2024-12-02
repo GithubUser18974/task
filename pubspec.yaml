@@ -31,6 +31,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_bloc: ^8.1.6
   intl:
   get_it:
@@ -38,7 +40,8 @@ dependencies:
   syncfusion_flutter_charts: ^27.2.4
   flutter_screenutil: ^5.9.3
   responsive_framework: ^1.5.1
-
+  month_year_picker: ^0.4.0+1
+  calendar_date_picker2: ^1.1.7
 dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:

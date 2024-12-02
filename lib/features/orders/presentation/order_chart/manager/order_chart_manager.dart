@@ -15,7 +15,13 @@ class OrderChartManager extends Cubit<OrderChartState> {
   final GetFilterOrdersUseCase _getFilterOrdersUseCase;
 
   Future<void> updateType(OrderFilterType type) async {
-    emit(OrderChartLoading(request: state.request.coyWith(type: type)));
+    emit(
+      OrderChartLoading(
+        request: state.request.coyWith(
+          type: type,
+        ),
+      ),
+    );
     await loadData();
   }
 

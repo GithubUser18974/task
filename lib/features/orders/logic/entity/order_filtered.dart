@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import 'order.dart';
 
 enum OrderFilterType {
@@ -9,6 +11,22 @@ enum OrderFilterType {
 class OrderFilterRequest {
   final DateTime date;
   final OrderFilterType type;
+
+  String dateFormat(DateTime orderDate) {
+    if (type == OrderFilterType.year) {
+      return DateFormat.y().format(
+        orderDate,
+      );
+    } else if (type == OrderFilterType.month) {
+      return DateFormat.yMMM().format(
+        orderDate,
+      );
+    } else {
+      return DateFormat.yMMMd().format(
+        orderDate,
+      );
+    }
+  }
 
   DateTime dateByRequestType(DateTime orderDate) {
     if (type == OrderFilterType.year) {

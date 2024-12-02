@@ -13,16 +13,26 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text(
+          'Dashboard',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.teal,
       ),
       body: BlocProvider(
         create: (context) => locator<HomeManager>(),
         child: BlocBuilder<HomeManager, HomeState>(
           builder: (context, state) {
             return (switch (state) {
-              (HomeDataState state) => HomeScreenView(summary: state.summary),
-              (HomeFailure state) => Text(state.errorMessage.toString()),
-              (_) => const Center(child: CircularProgressIndicator()),
+              (HomeDataState state) => HomeScreenView(
+                  summary: state.summary,
+                ),
+              (HomeFailure state) => Text(
+                  state.errorMessage.toString(),
+                ),
+              (_) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
             });
           },
         ),
