@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task/di/di.dart';
-import 'package:task/features/orders/presentation/order_chart/order_chart_screen.dart';
+import 'package:task/features/orders/presentation/home/home_screen.dart';
 
 void main() {
   configureDependencies();
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const OrderChartScreen(),
+      home: const HomeScreen(),
     );
   }
 }

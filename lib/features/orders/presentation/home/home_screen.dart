@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/config/config.dart';
 import 'package:task/di/di.dart';
+import 'package:task/features/orders/presentation/home/widgets/home_screen_view.dart';
 
 import 'manager/home_manager.dart';
 import 'manager/home_state.dart';
@@ -20,10 +20,7 @@ class HomeScreen extends StatelessWidget {
         child: BlocBuilder<HomeManager, HomeState>(
           builder: (context, state) {
             return (switch (state) {
-              (HomeDataState state) => Text(
-                  state.summary.avgPrice
-                      .toStringAsFixed(Config.onScreenDecimalPoint),
-                ),
+              (HomeDataState state) => HomeScreenView(summary: state.summary),
               (HomeFailure state) => Text(state.errorMessage.toString()),
               (_) => const Center(child: CircularProgressIndicator()),
             });

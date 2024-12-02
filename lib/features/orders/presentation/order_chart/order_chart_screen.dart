@@ -22,26 +22,30 @@ class OrderChartScreen extends StatelessWidget {
         child: BlocBuilder<OrderChartManager, OrderChartState>(
           builder: (context, state) {
             return (switch (state) {
-              (OrderChartDataState state) => SfCircularChart(
-                  tooltipBehavior: _tooltipBehavior,
-                  title: const ChartTitle(text: 'Number of Order VS Date'),
-                  legend: const Legend(
-                      isVisible: true,
-                      overflowMode: LegendItemOverflowMode.wrap),
-                  series: <CircularSeries>[
-                    PieSeries<OrderFilterResponse, String>(
-                      dataSource: state.orders,
-                      xValueMapper: (OrderFilterResponse response, _) =>
-                          response.date.year.toString() +
-                          "-" +
-                          response.date.month.toString(),
-                      yValueMapper: (OrderFilterResponse response, _) =>
-                          response.orders.length,
-                      dataLabelSettings:
-                          const DataLabelSettings(isVisible: true),
-                    )
-                  ],
-                ),
+              (OrderChartDataState state) => SfCartesianChart(
+                    tooltipBehavior: _tooltipBehavior,
+                    title: const ChartTitle(text: 'Number of Order VS Date'),
+                    legend: const Legend(
+                        isVisible: true,
+                        overflowMode: LegendItemOverflowMode.wrap),
+                    ///////////////////////////////////////////////////////
+                    primaryXAxis: CategoryAxis(),
+                    series: <LineSeries<OrderFilterResponse, num>>[
+                      LineSeries<OrderFilterResponse, num>(
+                        // Bind data source
+                        dataSource: state.orders,
+
+                        xValueMapper: (OrderFilterResponse response, _) =>
+                            response.date.month,
+                        yValueMapper: (OrderFilterResponse response, _) =>
+                            response.orders.length,
+                        dataLabelSettings:
+                            const DataLabelSettings(isVisible: true),
+                      )
+                    ]),
+
+              ///////////////////////////////////////////////////////////
+
               //   Text(
               //   state.orders
               //       .map((e) => "${e.date} : ${e.orders.length}")
