@@ -37,6 +37,7 @@ dependencies:
   collection:
   syncfusion_flutter_charts: ^27.2.4
   flutter_screenutil: ^5.9.3
+  responsive_framework: ^1.5.1
 
 dev_dependencies:
   flutter_lints: ^4.0.0
