@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task/di/di.dart';
 import 'package:task/features/orders/presentation/home/widgets/home_screen_view.dart';
 
+import '../../../../core/di/di.dart';
 import 'manager/home_manager.dart';
 import 'manager/home_state.dart';
 

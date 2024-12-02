@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task/config/config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task/core/config/extension.dart';
 
+import '../../../../../core/config/config.dart';
+import '../../../../../core/routing/routes.dart';
 import '../../../logic/entity/summary.dart';
 
 class HomeScreenView extends StatelessWidget {
@@ -11,11 +14,14 @@ class HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: const Text(
+          'Dashboard',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.teal,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -23,11 +29,11 @@ class HomeScreenView extends StatelessWidget {
             Text(
               'Summary Overview',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.h),
 
             // Stats Row
             Row(
@@ -43,6 +49,26 @@ class HomeScreenView extends StatelessWidget {
                     summary.returnedCount.toString(), Colors.red),
               ],
             ),
+            const Spacer(),
+            ////////////////////////////
+            ElevatedButton(
+              onPressed: () {
+                // Add your action here
+                context.pushNamed(Routes.orderChartScreen);
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),
+                backgroundColor: Colors.teal,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+              ),
+              child: Text(
+                'Chart Screen',
+                style: TextStyle(fontSize: 18.sp, color: Colors.white),
+              ),
+            ),
+            /////////////////////////
           ],
         ),
       ),
@@ -52,28 +78,28 @@ class HomeScreenView extends StatelessWidget {
   Widget _buildStatCard(String title, String value, Color color) {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8),
-        padding: const EdgeInsets.all(16),
+        margin: EdgeInsets.symmetric(horizontal: 8.w),
+        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         decoration: BoxDecoration(
           color: color.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: color, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          border: Border.all(color: color, width: 2.w),
         ),
         child: Column(
           children: [
             Text(
               title,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: color,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               value,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
                 color: color,
               ),

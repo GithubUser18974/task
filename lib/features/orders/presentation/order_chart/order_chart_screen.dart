@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:task/di/di.dart';
 import 'package:task/features/orders/logic/entity/order_filtered.dart';
 import 'package:task/features/orders/presentation/order_chart/manager/order_chart_state.dart';
 
+import '../../../../core/di/di.dart';
 import '../order_chart/manager/order_chart_manager.dart';
 
 class OrderChartScreen extends StatelessWidget {
