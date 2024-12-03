@@ -5,6 +5,7 @@ import 'package:month_year_picker/month_year_picker.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:task/features/orders/logic/entity/order_filtered.dart';
 import 'package:task/features/orders/presentation/order_chart/manager/order_chart_state.dart';
+import 'package:task/features/orders/presentation/order_chart/widgets/select_date_type_dropdown.dart';
 
 import '../../../../core/di/di.dart';
 import '../order_chart/manager/order_chart_manager.dart';
@@ -74,6 +75,12 @@ class OrderChartData extends StatelessWidget {
                 child: Text(
                   state.request.dateFormat(state.request.date),
                 ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              SelectDateTypeDropdown(
+                selectedValue: state.request.type,
               ),
             ],
           ),

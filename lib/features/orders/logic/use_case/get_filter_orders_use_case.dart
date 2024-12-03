@@ -14,7 +14,7 @@ class GetFilterOrdersUseCase {
   Future<List<OrderFilterResponse>> call({
     required OrderFilterRequest request,
   }) async {
-    List<OrderFilterResponse> ret = [];
+    List<OrderFilterResponse> returnedValue = [];
     final allOrders = await _orderRepo.getAllOrders();
 
     final filteredOrders = allOrders
@@ -29,15 +29,15 @@ class GetFilterOrdersUseCase {
     );
 
     groupedOrders.forEach((key, value) {
-      ret.add(OrderFilterResponse(
+      returnedValue.add(OrderFilterResponse(
         date: key,
         orders: value,
       ));
     });
 
-    ret.sort(
+    returnedValue.sort(
       (a, b) => a.date.compareTo(b.date),
     );
-    return ret;
+    return returnedValue;
   }
 }

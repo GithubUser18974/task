@@ -58,10 +58,11 @@ class HomeScreenView extends StatelessWidget {
               ),
             ],
           ),
-          SummaryPieChart(
-            summary: summary,
+          Expanded(
+            child: SummaryPieChart(
+              summary: summary,
+            ),
           ),
-          const Spacer(),
           ////////////////////////////
           ElevatedButton(
             onPressed: () {
