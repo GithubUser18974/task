@@ -5,7 +5,6 @@ import 'package:task/features/orders/presentation/order_chart/order_chart_screen
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
